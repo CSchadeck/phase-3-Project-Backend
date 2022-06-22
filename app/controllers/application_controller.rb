@@ -38,12 +38,18 @@ class ApplicationController < Sinatra::Base
 
 
   get "/subjects/:id" do
-    subject = Student.find(params[:id])
+    subject = subject.find(params[:id])
     subject.to_json
   end
 
+  get "/subjects/:id/:cards" do
+    subject = Subject.find(params[:id]).cards
+    subject.to_json
+  end
+
+
   post "/subjects" do
-    subject = Subgject.create( subject:params[:subject])
+    subject = Subject.create( subject:params[:subject])
     subject.to_json
   end
 
@@ -82,9 +88,9 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/cards/:id' do
-    cards = Cards.find(params[:id])
-    cards.update( front:params[:front], back:params[:back],student_id:params[:student_id],subject_id:params[:subject_id])
-    review.to_json
+    cards = Card.find(params[:id])
+    card.update( front:params[:front], back:params[:back],student_id:params[:student_id],subject_id:params[:subject_id])
+    card.to_json
   end
 
 end
