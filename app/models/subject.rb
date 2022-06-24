@@ -10,7 +10,6 @@ class Subject < ActiveRecord::Base
     def edit_name(subject)
         self.update(self_id: self.id)
     end
-    end
 
     def destoy_subject(subject)
         self.find_by(self_id: self.id).destroy

@@ -55,7 +55,7 @@ class ApplicationController < Sinatra::Base
 
   delete "/subjects/:id" do
     subject = Subject.find(params[:id])
-    subjectt.destroy
+    subject.destroy
     subject.to_json
   end
 
@@ -83,12 +83,12 @@ class ApplicationController < Sinatra::Base
 
   delete "/cards/:id" do
     subject = Card.find(params[:id])
-    subjectt.destroy
+    subject.destroy
     subject.to_json
   end
 
   patch '/cards/:id' do
-    cards = Card.find(params[:id])
+    card = Card.find(params[:id])
     card.update( front:params[:front], back:params[:back],student_id:params[:student_id],subject_id:params[:subject_id])
     card.to_json
   end
